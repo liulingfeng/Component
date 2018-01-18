@@ -1,0 +1,70 @@
+apply plugin: 'com.android.application'
+
+static def buildTime() {
+    return new Date().format("yyyyMMdd");
+}
+
+android {
+    signingConfigs {
+        config {
+            keyAlias 'key'
+            keyPassword '123456'
+            storeFile file('E:/MyWorkSpace/lxs.jks')
+            storePassword '123456'
+        }
+    }
+    compileSdkVersion rootProject.ext.android.compileSdkVersion
+    buildToolsVersion rootProject.ext.android.buildToolsVersion
+    defaultConfig {
+        applicationId "com.llf.component"
+        minSdkVersion rootProject.ext.android.minSdkVersion
+        targetSdkVersion rootProject.ext.android.targetSdkVersion
+        versionCode rootProject.ext.android.versionCode
+        versionName rootProject.ext.android.versionName
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        signingConfig signingConfigs.config
+        //打包时间
+        resValue "string", "build_time", buildTime()
+        ndk {
+            // 设置支持的SO库架构
+            abiFilters 'armeabi' //, 'x86', 'armeabi-v7a', 'x86_64', 'arm64-v8a'
+        }
+    }
+    buildTypes {
+        release {
+            minifyEnabled true
+            // 缩减resource文件
+            shrinkResources true
+            //是否zip对齐
+            zipAlignEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.config
+        }
+        debug {
+            //给applicationId添加后缀“.debug”
+            applicationIdSuffix ".debug"
+            signingConfig signingConfigs.config
+            zipAlignEnabled false
+            shrinkResources false
+            minifyEnabled false
+            debuggable true
+        }
+    }
+    productFlavors {
+    }
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation project(':common')
+    if (isModule.toBoolean()) {
+        implementation project(':girls')
+        implementation project(':news')
+        implementation project(':main')
+    }
+
+    implementation rootProject.ext.dependencies.multidex
+    //bugly线上问题收集
+    compile rootProject.ext.dependencies.buglyCrash
+    compile rootProject.ext.dependencies.buglyNative
+}
