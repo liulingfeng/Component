@@ -10,7 +10,7 @@ import com.llf.component.common.base.ViewManager;
 public class GirlApplicationDelegate implements IApplicationDelegate {
     @Override
     public void onCreate() {
-        ViewManager.getInstance().addFragment(1, GirlFragment.newInstance());
+        ViewManager.getInstance().addFragment(0, GirlFragment.newInstance());
     }
 
     @Override

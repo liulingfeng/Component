@@ -48,4 +48,5 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation project(':common')
     annotationProcessor rootProject.ext.dependencies.arouterCompiler
+    implementation rootProject.ext.dependencies.bottomNavigation
 }

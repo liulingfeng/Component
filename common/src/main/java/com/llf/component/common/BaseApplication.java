@@ -2,13 +2,14 @@ package com.llf.component.common;
 
 import android.app.Application;
 import android.content.Context;
-import android.util.Log;
 
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.llf.component.common.base.ClassUtils;
 import com.llf.component.common.base.IApplicationDelegate;
+import com.llf.component.common.utils.Utils;
 import com.squareup.leakcanary.LeakCanary;
 import com.squareup.leakcanary.RefWatcher;
+
 import java.util.List;
 
 
@@ -34,6 +35,7 @@ public class BaseApplication extends Application {
         super.onCreate();
 
         sInstance = this;
+        Utils.init(this);
         if (BuildConfig.DEBUG) {
             //一定要在ARouter.init之前调用openDebug
             ARouter.openDebug();
@@ -46,7 +48,6 @@ public class BaseApplication extends Application {
         //找出所有实现mAppDelegateList的类
 
         mAppDelegateList = ClassUtils.getObjectsWithInterface(this, IApplicationDelegate.class, ROOT_PACKAGE);
-        Log.e("大小",mAppDelegateList.size()+"");
         for (IApplicationDelegate delegate : mAppDelegateList) {
             delegate.onCreate();
         }
