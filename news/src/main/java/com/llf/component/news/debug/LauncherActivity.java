@@ -1,11 +1,12 @@
-package com.llf.component.girls.debug;
+package com.llf.component.news.debug;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.PersistableBundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 
-import com.llf.component.girls.GirlActivity;
+import com.llf.component.news.NewsActivity;
 
 /**
  * Created by lxs on 2018/1/17.
@@ -15,9 +16,10 @@ import com.llf.component.girls.GirlActivity;
 
 public class LauncherActivity extends AppCompatActivity{
     @Override
-    public void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        Intent intent = new Intent(this, GirlActivity.class);
+    public void onCreate(@Nullable Bundle savedInstanceState, @Nullable PersistableBundle persistentState) {
+        super.onCreate(savedInstanceState, persistentState);
+
+        Intent intent = new Intent(this, NewsActivity.class);
         intent.putExtra("name", "avcd");
         intent.putExtra("syscode", "023e2e12ed");
         startActivity(intent);

@@ -8,4 +8,8 @@ import com.llf.component.common.BaseApplication;
  */
 
 public class GirlApplication extends BaseApplication {
+    @Override
+    public void onCreate() {
+        super.onCreate();
+    }
 }

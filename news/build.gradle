@@ -1,4 +1,4 @@
-if (isModule.toBoolean()) {
+if (isNewsModule.toBoolean()) {
     apply plugin: 'com.android.library'
 } else {
     apply plugin: 'com.android.application'
@@ -22,7 +22,7 @@ android {
     }
     sourceSets {
         main {
-            if (isModule.toBoolean()) {
+            if (isNewsModule.toBoolean()) {
                 manifest.srcFile 'src/main/AndroidManifest.xml'
                 //集成开发模式下排除debug文件夹中的所有Java文件
                 java {
