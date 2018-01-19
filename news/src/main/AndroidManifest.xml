@@ -1,7 +1,14 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           package="com.llf.component.news">
+
     <application android:theme="@style/AppTheme">
-        <activity android:name=".NewsActivity"/>
-        <activity android:name=".NewsDetailActivity"/>
+        <activity
+            android:name=".NewsActivity"
+            android:screenOrientation="portrait"
+            />
+        <activity
+            android:name=".NewsDetailActivity"
+            android:screenOrientation="portrait"
+            />
     </application>
 </manifest>

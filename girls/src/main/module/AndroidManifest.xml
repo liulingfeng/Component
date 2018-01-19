@@ -20,8 +20,10 @@
         <activity
             android:name=".GirlActivity"
             android:screenOrientation="portrait"
-            >
+            />
 
-        </activity>
+        <activity android:name=".GirlDetailActivity"
+            android:screenOrientation="portrait"
+            />
     </application>
 </manifest>

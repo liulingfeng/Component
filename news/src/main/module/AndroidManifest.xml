@@ -21,5 +21,8 @@
             android:name=".NewsActivity"
             android:screenOrientation="portrait"
             />
+        <activity android:name=".NewsDetailActivity"
+            android:screenOrientation="portrait"
+            />
     </application>
 </manifest>
