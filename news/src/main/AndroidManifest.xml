@@ -2,5 +2,6 @@
           package="com.llf.component.news">
     <application android:theme="@style/AppTheme">
         <activity android:name=".NewsActivity"/>
+        <activity android:name=".NewsDetailActivity"/>
     </application>
 </manifest>

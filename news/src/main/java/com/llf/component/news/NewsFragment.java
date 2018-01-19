@@ -5,6 +5,9 @@ import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+
+import com.alibaba.android.arouter.launcher.ARouter;
 import com.llf.component.common.BaseFragment;
 
 /**
@@ -20,6 +23,16 @@ public class NewsFragment extends BaseFragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_news, container, false);
+        View view = inflater.inflate(R.layout.fragment_news, container, false);
+        Button btnGo = view.findViewById(R.id.btn_go);
+        btnGo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ARouter.getInstance().build("/girl/girlDetail")
+                        .withString("name", "刘小帅")
+                        .navigation();
+            }
+        });
+        return view;
     }
 }

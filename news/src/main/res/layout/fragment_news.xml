@@ -6,11 +6,23 @@
     android:background="#ffedbc"
     >
     <TextView
+        android:id="@+id/tv_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="40sp"
         android:textColor="#0000ff"
         android:text="我是新闻"
         android:layout_centerInParent="true"
+        />
+    <Button
+        android:id="@+id/btn_go"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_below="@id/tv_title"
+        android:layout_marginTop="8dp"
+        android:background="#C0C0C0"
+        android:text="@string/girls_go"
+        android:textColor="#FFB6C1"
+        android:textSize="15sp"
         />
 </RelativeLayout>
